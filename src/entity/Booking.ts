@@ -1,4 +1,4 @@
-import {Entity, PrimaryGeneratedColumn, Column, Double, ManyToOne, JoinColumn} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn} from "typeorm";
 import { User } from "./User";
 import { Property } from "./Property";
 
@@ -12,8 +12,8 @@ export class Booking {
     @JoinColumn({name:'property_id'})
     property : Property
 
-    @Column()
-    price: Double;
+    @Column({type: 'decimal', precision: 5, scale: 2})
+    price: number;
 
     @Column({type:'date'})
     booking_date: Date;
