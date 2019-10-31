@@ -1,24 +1,21 @@
 import {Entity, PrimaryGeneratedColumn, Column} from "typeorm";
 
 @Entity()
-export class User {
+export class Locality {
 
     @PrimaryGeneratedColumn()
     id: number;
 
     @Column()
-    name: string;
+    locality: string;
 
     @Column()
-    email: string;
-
-    @Column()
-    contact_no: string;
-
-    @Column({type:'date'})
-    created_at: Date;
+    property_id: string;
 
     @Column({type:'date'})
     updated_at: Date;
+
+    @Column({type:'date'})
+    created_at: Date;
 
 }
