@@ -1,4 +1,5 @@
-import {Entity, PrimaryGeneratedColumn, Column} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn} from "typeorm";
+import { Property } from "./Property";
 
 @Entity()
 export class Reviews {
@@ -6,8 +7,9 @@ export class Reviews {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column()
-    property_id: string;
+    @ManyToOne( type => Property)
+    @JoinColumn({ name : 'property_id'})
+    property : Property
 
     @Column()
     booking_id: string;
