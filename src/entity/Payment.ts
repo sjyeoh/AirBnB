@@ -1,4 +1,4 @@
-import {Entity, PrimaryGeneratedColumn, Column, Double, JoinColumn, ManyToOne} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, Column, JoinColumn, ManyToOne} from "typeorm";
 import { Booking } from "./Booking";
 
 @Entity()
@@ -14,7 +14,7 @@ export class Payment {
     @JoinColumn({name : 'booking_id'})
     booking : Booking
 
-    @Column()
-    amount: Double;
+    @Column({type: 'decimal', precision: 5, scale: 2})
+    amount: number;
 
 }
